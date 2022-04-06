@@ -2,6 +2,10 @@ name: Manual workflow 2
 
 on:
   workflow_dispatch:
+    inputs:
+      msg:
+        description: 'Message'
+        default: 'Hello'
 
 env:
   NODE_VERSION: '16.x'
