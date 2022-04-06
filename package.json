@@ -1,0 +1,22 @@
+{
+  "name": "github-actions-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bwalderman/github-actions-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bwalderman/github-actions-test/issues"
+  },
+  "homepage": "https://github.com/bwalderman/github-actions-test#readme",
+  "dependencies": {
+    "selenium-webdriver": "^4.1.1"
+  }
+}
