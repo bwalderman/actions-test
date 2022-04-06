@@ -1,4 +1,4 @@
-name: Manual workflow 2
+name: Manual workflow 3
 
 on:
   workflow_dispatch:
@@ -22,5 +22,5 @@ jobs:
       - name: Test
         run: |
           echo "Hello World!""
-      # env:
-      #   DISPLAY: :99
+        env:
+          DISPLAY: :99
