@@ -1,5 +1,3 @@
-# This is a basic workflow that is manually triggered
-
 name: Manual workflow
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
@@ -24,7 +22,7 @@ jobs:
         uses: ./.github/actions/setup-edge
       - name: Start XVFB
         run: Xvfb :99 &
-      - name:
+      - name: Runs Tests
         run: |
           echo "Hello World!""
         env:
