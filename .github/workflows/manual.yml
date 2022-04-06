@@ -1,7 +1,7 @@
 name: Manual workflow 2
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 env:
   NODE_VERSION: '16.x'
