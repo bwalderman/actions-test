@@ -25,5 +25,5 @@ jobs:
         run: npm install
       - name: Run Tests
         run: node test.js
-        # env:
-        #   DISPLAY: :99
+        env:
+          DISPLAY: :99
