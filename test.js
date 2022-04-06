@@ -1,7 +1,17 @@
 const { Builder, By } = require('selenium-webdriver');
 
+const edge = require('selenium-webdriver/edge');
+
 (async () => {
-    const driver = await new Builder().forBrowser('MicrosoftEdge').build();
+    const service = new edge.ServiceBuilder()
+    .addArguments("--verbose", "--enable-chrome-logs")
+    .setStdio('inherit')
+    .build();
+
+    const options = new edge.Options();
+    options.addArguments("--enable-logging");
+
+    const driver = edge.Driver.createSession(options, service);
     try {
         await driver.get('https://bing.com');
 
@@ -13,5 +23,6 @@ const { Builder, By } = require('selenium-webdriver');
         console.log(title);
     } finally {
         await driver.quit();
+        await service.kill();
     }
 })();
