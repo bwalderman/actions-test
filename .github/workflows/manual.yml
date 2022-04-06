@@ -19,8 +19,8 @@ jobs:
     #   uses: ./.github/actions/setup-edge
     # - name: Start XVFB
     #   run: Xvfb :99 &
-    - name: Test
-      run: |
-        echo "Hello World!""
-      env:
-        DISPLAY: :99
+      - name: Test
+        run: |
+          echo "Hello World!""
+      # env:
+      #   DISPLAY: :99
