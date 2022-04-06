@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Setup Edge and EdgeDriver
-      uses: ./.github/actions/setup-edge
+    # - name: Setup Edge and EdgeDriver
+    #   uses: ./.github/actions/setup-edge
     # - name: Start XVFB
     #   run: Xvfb :99 &
     - name:
