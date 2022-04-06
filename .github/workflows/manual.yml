@@ -1,12 +1,22 @@
-name: Manual workflow
+name: Manual workflow 2
 
 on:
-  workflow_dispatch:
+  workflow_dispatch
+
+env:
+  NODE_VERSION: '16.x'
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Runs Tests
-        run: |
-          echo "Hello World!""
+    - name: Setup Edge and EdgeDriver
+      uses: ./.github/actions/setup-edge
+    # - name: Start XVFB
+    #   run: Xvfb :99 &
+    - name:
+      run: |
+        echo "Hello World!""
+      env:
+        DISPLAY: :99
