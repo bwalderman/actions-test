@@ -1,6 +1,5 @@
-const { Builder, By } = require('selenium-webdriver');
-
 const edge = require('selenium-webdriver/edge');
+const command = require('selenium-webdriver/lib/command');
 
 (async () => {
     const service = new edge.ServiceBuilder()
@@ -13,14 +12,23 @@ const edge = require('selenium-webdriver/edge');
 
     const driver = edge.Driver.createSession(options, service);
     try {
-        await driver.get('https://bing.com');
+        driver.getExecutor().defineCommand("addVirtualAuthenticator", "POST", "/session/:sessionId/webauthn/authenticator");
 
-        const element = await driver.findElement(By.id('sb_form_q'));
-        await element.sendKeys('WebDriver');
-        await element.submit();
+        const authOptions = {
+            protocol: "ctap1/u2f",
+            transport: "usb",
+            hasResidentKey: false,
+            hasUserVerification: false,
+            isUserConsenting: true,
+            isUserVerified: false
+        };
 
-        const title = await driver.getTitle();
-        console.log(title);
+        await driver.navigate().to("http://localhost:8080/test.html");
+
+        const addAuthenticatorResult = await driver.execute(new command.Command("addVirtualAuthenticator").setParameters(authOptions));
+
+        const response = await driver.executeAsyncScript("registerCredential().then(arguments[arguments.length - 1]);");
+        console.log(response);
     } finally {
         await driver.quit();
         await service.kill();

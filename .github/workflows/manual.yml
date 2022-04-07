@@ -23,6 +23,8 @@ jobs:
         run: Xvfb :99 &
       - name: Install packages
         run: npm install
+      - name: Start HTTP server
+        run: npx http-server . &
       - name: Run Tests
         run: node test.js
         env:
